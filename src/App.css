@@ -98,14 +98,15 @@ a.nav-link:hover:before {
 	opacity: 0;
 	transform: translateY(8px);
 	transition: transform 1s 0.6s ease, width 0.5s ease, opacity 1s 0.6s ease;
+	position: relative;
 }
 .header-demo.is-visible {
 	opacity: 1;
 	transform: translateY(0);
+	position: relative;
 }
 .header-demo.is-visible.is-at-top {
-	margin-top: 100px auto;
-	width: 88%;
+	width: 85%;
 }
 .video-dimensions {
 	display: flex;
@@ -117,9 +118,9 @@ a.nav-link:hover:before {
 	width: 60%;
 	opacity: 0;
 	transform: translateX(100px);
-	transition: all 0.6s 1s ease;
+	transition: all 0.6s 0.3s ease;
 }
-.video-dimensions-headline.is-visible {
+.video-dimensions-headline.is-delayed-visible {
 	opacity: 1;
 	transform: translateX(0);
 }

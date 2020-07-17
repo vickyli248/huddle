@@ -23,6 +23,9 @@ function loop() {
 		if (isElementInViewport(element)) {
 			element.classList.add('is-visible');
 		}
+		if (isElementInDelayedViewport(element)) {
+			element.classList.add('is-delayed-visible');
+		}
 		if (isAtTop(element)) {
 			element.classList.add('is-at-top');
 		}
@@ -51,6 +54,20 @@ function isElementInViewport(el) {
 		(rect.top >= 0 &&
 			rect.bottom <=
 				(window.innerHeight || document.documentElement.clientHeight))
+	);
+}
+function isElementInDelayedViewport(el) {
+	var rect = el.getBoundingClientRect();
+	return (
+		(rect.top <= 0 && rect.bottom >= 0) ||
+		(rect.bottom >=
+			(window.innerHeight || document.documentElement.clientHeight) &&
+			rect.top <=
+				(window.innerHeight || document.documentElement.clientHeight)) ||
+		(rect.top >= 0 &&
+			rect.bottom <=
+				(window.innerHeight - 600 ||
+					document.documentElement.clientHeight - 600))
 	);
 }
 loop();
