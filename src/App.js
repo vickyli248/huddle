@@ -1,60 +1,79 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Router } from '@reach/router';
 
 import './App.css';
 
-import PurpleGradPattern from './img/purple-gradient-pattern.png';
-import LandingHeadline from './img/landing-headline.png';
-import HeaderDemo from './img/header-demo.png';
-import Logo from './img/logo.png';
-import VideoDimensionsHeadline from './img/video-dimensions.png';
-import GreenGradPattern from './img/green-gradient-pattern.png';
+import Demo from './components/Demo';
+import Landing from './components/Landing';
 
 function App() {
+	var scroll =
+		window.requestAnimationFrame ||
+		function (callback) {
+			window.setTimeout(callback, 1000 / 60);
+		};
+
+	var elementsToShow = document.querySelectorAll('.show-on-scroll');
+	function loop() {
+		elementsToShow.forEach(function (element) {
+			if (isElementInViewport(element)) {
+				element.classList.add('is-visible');
+			}
+			if (isElementInDelayedViewport(element)) {
+				element.classList.add('is-delayed-visible');
+			}
+			if (isAtTop(element)) {
+				element.classList.add('is-at-top');
+			}
+			if (isAtBottom(element)) {
+				element.classList.remove('is-at-top');
+			}
+		});
+		scroll(loop);
+	}
+	function isAtTop(el) {
+		var rect = el.getBoundingClientRect();
+		return rect.y <= 170;
+	}
+	function isAtBottom(el) {
+		var rect = el.getBoundingClientRect();
+		return rect.top >= 170;
+	}
+	function isElementInViewport(el) {
+		var rect = el.getBoundingClientRect();
+		return (
+			(rect.top <= 0 && rect.bottom >= 0) ||
+			(rect.bottom >=
+				(window.innerHeight || document.documentElement.clientHeight) &&
+				rect.top <=
+					(window.innerHeight || document.documentElement.clientHeight)) ||
+			(rect.top >= 0 &&
+				rect.bottom <=
+					(window.innerHeight || document.documentElement.clientHeight))
+		);
+	}
+	function isElementInDelayedViewport(el) {
+		var rect = el.getBoundingClientRect();
+		return (
+			(rect.top <= 0 && rect.bottom >= 0) ||
+			(rect.bottom >=
+				(window.innerHeight || document.documentElement.clientHeight) &&
+				rect.top <=
+					(window.innerHeight || document.documentElement.clientHeight)) ||
+			(rect.top >= 0 &&
+				rect.bottom <=
+					(window.innerHeight - 600 ||
+						document.documentElement.clientHeight - 600))
+		);
+	}
+	loop();
+
 	return (
-		<div>
-			<div className="header">
-				<div className="navbar">
-					<img src={Logo} className="logo show-on-scroll" alt="Logo" />
-					<div className="navigation show-on-scroll">
-						<a className="nav-link" href="#">
-							About
-						</a>
-						<a className="nav-link" href="#">
-							Sign Up
-						</a>
-					</div>
-				</div>
-
-				<img
-					src={PurpleGradPattern}
-					className="background-gradient purple"
-					alt="Purple Gradient"
-				/>
-
-				<img
-					src={LandingHeadline}
-					className="landing-headline show-on-scroll"
-					alt="Tagline"
-				/>
-
-				<img
-					src={HeaderDemo}
-					className="header-demo show-on-scroll"
-					alt="Header Demo"
-				/>
-			</div>
-			<div className="video-dimensions">
-				<img
-					src={VideoDimensionsHeadline}
-					className="video-dimensions-headline show-on-scroll"
-					alt="Video Dimensions"
-				/>
-				<img
-					src={GreenGradPattern}
-					className="background-gradient"
-					alt="Green Gradient"
-				/>
-			</div>
+		<div className="App">
+			<Router>
+				<Landing path="/" />
+				<Demo path="/demo" />
+			</Router>
 		</div>
 	);
 }
