@@ -1,0 +1,16 @@
+/* hard coded each color option, up to the component to select correct one */
+.valuepage-title-green {
+
+    color: linear-gradient(180deg, #8CD9AE 0%, #57E7C4 100%);
+
+    font-family: Gilroy-Bold;
+    font-style: normal;
+    font-weight: bold;
+    /* color: blue; */
+    font-size: 100px;
+    line-height: 124px;
+    /* identical to box height */
+
+    text-align: center;
+    letter-spacing: 0.05em;
+}
