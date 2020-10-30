@@ -19,6 +19,7 @@ var scroll =
 
 var elementsToShow = document.querySelectorAll('.show-on-scroll');
 function loop() {
+	console.log('entered loop');
 	elementsToShow.forEach(function (element) {
 		if (isElementInViewport(element)) {
 			element.classList.add('is-visible');
