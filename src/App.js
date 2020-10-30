@@ -4,11 +4,11 @@ import React, { useEffect } from 'react';
 import "./hero.css"
 
 import Hero from './components/Hero';
-import Valuepage from './components/Valuepage'
+import Valuepage from './components/Valuepage';
 
-import GreenSVG from './img/BackgroundSVG/GreenSVG.svg'
-import OrangeSVG from './img/BackgroundSVG/OrangeSVG.svg'
-import BlueSVG from './img/BackgroundSVG/BlueSVG.svg'
+import GreenSVG from './img/BackgroundSVG/GreenSVG.png'
+import OrangeSVG from './img/BackgroundSVG/OrangeSVG.svg';
+import BlueSVG from './img/BackgroundSVG/BlueSVG.svg';
 
 function App() {
 	return (
@@ -27,14 +27,14 @@ function App() {
 				bodyText="Seeing everyone in the global view makes the entire space feel shared. 
 						Overhear conversations and hop between then, just as you would in real life.  "
 				color="orange"
-				// backgroundImg={OrangeSVG}
+				backgroundImg={OrangeSVG}
 			/>
 			<Valuepage
 				title="engage in shared experiences"
 				bodyText="Drag and drop games, tools and media to enhance the traditional video chat experience past screen sharing. 
 						Have customized activities for every event."
 				color="blue"
-				// backgroundImg={BlueSVG}
+				backgroundImg={BlueSVG}
 			/>
 		</div>
 	);
