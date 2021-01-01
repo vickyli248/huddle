@@ -1,54 +1,75 @@
 /* hard coded each color option, up to the component to select correct one */
 @font-face {
-    font-family: 'Gilroy-Bold';
-    src: local('Gilroy-Bold'), url(../fonts/Gilroy-Bold.ttf) format('opentype');
+	font-family: 'Gilroy-Bold';
+	src: local('Gilroy-Bold'), url(../fonts/Gilroy-Bold.ttf) format('opentype');
 }
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10vw;
 }
-.background-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
+.inner-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.gradient {
+	z-index: -1;
+	position: relative;
+	width: 100%;
 }
 .valuepage-title {
-    font-family: Gilroy-Bold;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 80px;
-    line-height: 124px;
-    /* identical to box height */
+	font-family: Gilroy-Bold;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 80px;
+	line-height: 5rem;
+	/* identical to box height */
 
-    text-align: center;
-    letter-spacing: 0.05em;
+	text-align: center;
+	letter-spacing: 0.05em;
+	/* margin-top: 2vw;
+	margin-bottom: 4vw; */
 }
 .valuepage-title.green {
-    color: #8CD9C7;
+	color: #8cd9c7;
 }
 
-.valuepage-title.orange { 
-    color: #F7ACAC;
+.valuepage-title.orange {
+	color: #f7acac;
 }
 
 .valuepage-title.blue {
-    color: #77BEFF;
+	color: #77beff;
 }
-
 .valuepage-body {
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 33px;
-    line-height: 39px;
-    letter-spacing: 0.05em;
-
-    color: #656565;
+	width: 60%;
+	margin-right: 30px;
+}
+.valuepage-body p {
+	font-family: Rubik;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 33px;
+	line-height: 45px;
+	letter-spacing: 0.05em;
+	color: #656565;
+	margin-top: 0px;
+	text-align: center;
 }
 
 .valuepage-whitebox {
-    background: #FFFFFF;
-    box-shadow: 3px 3px 24px rgba(0, 0, 0, 0.14);
-    border-radius: 24px;
+	background: #ffffff;
+	box-shadow: 3px 3px 24px rgba(0, 0, 0, 0.14);
+	border-radius: 24px;
+	width: 70%;
+	position: absolute;
+	margin-top: 5vw;
+	padding: 10rem 4rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.screenshot {
+	width: 80%;
 }
